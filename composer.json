@@ -1,0 +1,27 @@
+{
+    "name": "weeble/oo-valueprovider",
+    "description": "Simple DB Model / Value Object absraction",
+    "license": "",
+    "authors": [
+        {
+            "name": "Shaun Walker"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Weeble\\OO\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "master"
+        }
+    },
+    "minimum-stability": "dev"
+}
