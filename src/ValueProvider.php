@@ -3,7 +3,7 @@ namespace Weeble\OO;
 
 class ValueProvider {
 
-	protected $fields = []
+	protected $fields = [];
 
 	protected $valueClass;
 
