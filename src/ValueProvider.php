@@ -36,6 +36,11 @@ class ValueProvider {
 	{
 		return $this->valueClass;
 	}
+	
+	public function getFields()
+	{
+		return $this->fields;
+	}
 
 	public function provide($dbModel)
 	{
