@@ -7,17 +7,19 @@ class ValueProvider {
 
 	protected $valueClass;
 
-	function __construct($valueClass, array $fields = []) {
+	function __construct($valueClass, array $fields) {
+		$this->setValueClass($valueClass);
+		$this->setFields($fields);
+	}
+
+	public function setValueClass($valueClass)
+	{
 		if(is_string($valueClass)){
 			$this->valueClass = $valueClass;
-		}else(is_object($valueClass)){
+		}else if(is_object($valueClass)){
 			$this->valueClass = get_class($valueClass);
 		}else{
 			throw new \Exception("\$valueClass must be a string or object.", 1);
-		}
-
-		if( !empty($fields) ){
-			$this->setFields($fields);
 		}
 	}
 
@@ -28,6 +30,11 @@ class ValueProvider {
 		}else{
 			$this->fields = $fields;
 		}
+	}
+
+	public function getValueClass()
+	{
+		return $this->valueClass;
 	}
 
 	public function provide($dbModel)
