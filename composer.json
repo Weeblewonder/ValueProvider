@@ -1,5 +1,5 @@
 {
-    "name": "weeble/oo-valueprovider",
+    "name": "weeble/valueprovider",
     "description": "Simple DB Model / Value Object absraction",
     "license": "",
     "authors": [
