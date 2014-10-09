@@ -42,14 +42,14 @@ class ValueProvider {
 		return $this->fields;
 	}
 
-	public function provide($dbModel)
+	public function provideValue($dbModel)
 	{
-		return $this->newValueObject($dbModel);
+		return $this->transposeObject($dbModel);
 	}
 
 	protected function newValueObject()
 	{
-		return new $this->valueObject;
+		return new $this->valueClass;
 	}
 
 	protected function transposeObject($dbModel)
@@ -63,6 +63,8 @@ class ValueProvider {
 				$valueObject->$field = null;
 			}
 		}
+
+		return $valueObject;
 	}
 
 

@@ -38,9 +38,33 @@ class ValueProviderSpec extends ObjectBehavior
 
     	$this->getValueClass()->shouldEqual('spec\Weeble\OO\ValueObject');
     }
+
+    function it_provides_value_object_from_db_model()
+    {
+    	$dbModel = new DbModel;
+    	$this->provideValue($dbModel)->shouldReturnAnInstanceOf('spec\Weeble\OO\ValueObject');
+    }
+
+    function it_transposes_db_to_value_correctly()
+    {
+    	$dbModel = new DbModel;
+    	$dbModel->firstName = "Shaun";
+    	$dbModel->age = 23;
+
+    	$value = $this->provideValue($dbModel);
+
+    	$value->firstName->shouldEqual("Shaun");
+    	$value->age->shouldEqual(23);
+    }
 }
 
 
 class ValueObject {
+	public $firstName;
+	public $age;
+}
 
+class DbModel {
+	public $firstName;
+	public $age;
 }
